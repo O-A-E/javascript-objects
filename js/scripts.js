@@ -65,6 +65,11 @@ class Person
         // Add the new element to the body of our webpage.
         document.body.appendChild(helloElement);
     }
+    birthday() // We are defining this method to add 1 to the age property.
+    { 
+        this.age = this.age + 1 // MUST say "this" so script knows we are calling THIS current object's name
+        // !!! typing just "age" would cause JS to look for a variable (that is not here!)
+    }
 }
 
 // Let's make some new people!
@@ -77,7 +82,11 @@ const jia = new Person("Jia Then", 800, ["Sleep", "Cosplay"]); //can ctrl + clic
 console.log(jia);
 jia.height = "7"; // We can/update and add new values (but should we?? Probably not!); height is a property or value
 console.log(jia);
+// Running the hello method.
 jia.sayHello();
+// Running the birthday method.
+jia.birthday(); // Now she is 801!
+console.log ( "Jia is now... " + jia.age + " years old!");
 
 // Values kept inside an object are considered "properties"
 // Sets of instructions kept inside an object are considered "methods."
