@@ -60,8 +60,10 @@ class Person
     { 
         // Create an element.
         const helloElement = document.createElement("P");
+
         // Fill in the text of the element (using template literal.)
         helloElement.textContent = `Hello, my name is ${this.name}!`; // called a string plate literal; this calls on the current name property!
+
         // Add the new element to the body of our webpage.
         document.body.appendChild( helloElement );
     }
@@ -71,7 +73,7 @@ class Person
         // !!! typing just "age" would cause JS to look for a variable (that is not here!)
     }
     // Method to add a enw hobby to our "this.hobbies" array property.
-    addHobby ( hobby = "" ) // Set the parameter to a default of blank by using ""
+    addHobby ( hobby = "" ) // Set the parameter to a default of blank by using ""; good to have a blank default like this to avoid errors and force something to run if no value is entered
     {
         // Check if the hobby is filled in.
         if (hobby.length > 0)
@@ -82,6 +84,24 @@ class Person
         { // If it is NOT filled in, say no in the console :( 
             console.log( "Sorry, empty hobby! Please try again.") ;
         }
+    }
+    // Output the hobbies in the browser (in HTML, not the console!)
+    outputListOfHobbies ()
+    {
+        // New list HTMLElement (<ul>)... and new list item added every time a new hobby is added
+        const hobbyList = document.createElement( "ul" );
+        // Create a for loop to automatically created li elements; remember for loops have 3 parts to thiem (assignment to keep track of value, termination condition (as soon as this is false, it will stop looping), iteration)
+        // Loop, terminating based on length of our hobbies property (array data-type)
+        for ( let index = 0; index < this.hobbies.length; index++ ) // index = index + 1
+        { // New list item HTMLElement (<li>);
+        const hobbyListItem = document.createElement ( "li" );
+        // Add text inside of the HTMLElement
+        hobbyListItem.textContent = this.hobbies[index]; // Index from our loop! Iterated each time
+        // Add the list item HTMLElement (<li>) to the list HTMLElement (<ul>)
+        hobbyList.appendChild( hobbyListItem0 );
+        }
+        // Add the whole populated list HTMLElement (<ul>) to the webpage! (inside the <body> )
+        document.body.appendChild( hobbyList );
     }
 }
 
@@ -96,12 +116,15 @@ const jia = new Person( "Jia Then", 800, ["Sleep", "Cosplay"] ); //can ctrl + cl
 console.log( jia );
 jia.height = "7"; // We can/update and add new values (but should we?? Probably not!); height is a property or value
 console.log( jia );
+
 // Running the hello method.
 jia.sayHello();
+
 // Running the birthday method.
 jia.birthday(); // Now she is 801!
-console.log ( "Jia is now... " + jia.age + " years old!");
-// Add some hobbies to Jia's list... //!!! Try to also check these in the console to see immediately if it is working!
+console.log ( "Jia is now... " + jia.age + " years old!" );
+
+// Add some hobbies to Jia's list... //!!! Try to also check these in the console to see easily and immediately if it is working!
 jia.addHobby( "Programming" );
 jia.addHobby( "Asking Questions" );
 console.log ( jia.hobbies ); // Check the hobbies property!
