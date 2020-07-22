@@ -46,24 +46,38 @@ console.log(validJSONString); // This can be interpreted by other programming la
  */
 
 // Start our blueprint with teh "class" keyword.
-class Person {
+class Person 
+    {
     // We can use constructors to set the base properties for our objects (name/age/hobbies in this case.)
     constructor(name = "", age = 0, hobbies = []) {// Default values set in our parameters (name is a parameter, what is after = is our value)
         this.name = name;
         this.age = age;
         this.hobbies = hobbies;
     }
+
+    // We can add methods to a class, they are like "functions," but they are run from objects instead!
+    sayHello() // sayHello is a method!
+    { 
+        // Create an element.
+        const helloElement = document.createElement("P");
+        // Fill in the text of the element (using template literal.)
+        helloElement.textContent = `Hello, my name is ${this.name}!`; // called a string plate literal; this calls on the current name property!
+        // Add the new element to the body of our webpage.
+        document.body.appendChild(helloElement);
+    }
 }
 
 // Let's make some new people!
 const sarah = new Person; // Will only show default values
 console.log(sarah);
+sarah.sayHello(); // This will call upon a method to execute.
 
 // Note, when we pass arguments, the default parameters are overwritten!
 const jia = new Person("Jia Then", 800, ["Sleep", "Cosplay"]); //can ctrl + click on Person to automatically go back to where Person was defined!
 console.log(jia);
-jia.height = "7"; // We can/update and add new values (but should we?? Probably not!)
+jia.height = "7"; // We can/update and add new values (but should we?? Probably not!); height is a property or value
 console.log(jia);
+jia.sayHello();
 
 // Values kept inside an object are considered "properties"
 // Sets of instructions kept inside an object are considered "methods."
