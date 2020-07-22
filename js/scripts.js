@@ -70,7 +70,21 @@ class Person
         this.age = this.age + 1 // MUST say "this" so script knows we are calling THIS current object's name
         // !!! typing just "age" would cause JS to look for a variable (that is not here!)
     }
+    // Method to add a enw hobby to our "this.hobbies" array property.
+    addHobby ( hobby = "" ) // Set the parameter to a default of blank by using ""
+    {
+        // Check if the hobby is filled in.
+        if (hobby.length > 0)
+        { // If it is filled in, push it to the array!
+            this.hobbies.push(hobby); // Push will append a value onto an array!
+        }
+        else
+        { // If it is NOT filled in, say no in the console :( 
+            console.log("Sorry, empty hobby! Please try again.");
+        }
+    }
 }
+
 
 // Let's make some new people!
 const sarah = new Person; // Will only show default values
@@ -88,5 +102,5 @@ jia.sayHello();
 jia.birthday(); // Now she is 801!
 console.log ( "Jia is now... " + jia.age + " years old!");
 
-// Values kept inside an object are considered "properties"
-// Sets of instructions kept inside an object are considered "methods."
+// Values kept inside an object are considered "properties" --> similar to variables!
+// Sets of instructions kept inside an object are considered "methods." --> similar to functions!
