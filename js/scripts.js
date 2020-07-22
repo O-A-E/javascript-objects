@@ -86,7 +86,7 @@ class Person
         }
     }
     // Output the hobbies in the browser (in HTML, not the console!)
-    outputListOfHobbies ()
+    outputListOfHobbies()
     {
         // New list HTMLElement (<ul>)... and new list item added every time a new hobby is added
         const hobbyList = document.createElement( "ul" );
@@ -98,11 +98,13 @@ class Person
         // Add text inside of the HTMLElement
         hobbyListItem.textContent = this.hobbies[index]; // Index from our loop! Iterated each time
         // Add the list item HTMLElement (<li>) to the list HTMLElement (<ul>)
-        hobbyList.appendChild( hobbyListItem0 );
+        hobbyList.appendChild( hobbyListItem );
         }
         // Add the whole populated list HTMLElement (<ul>) to the webpage! (inside the <body> )
         document.body.appendChild( hobbyList );
+        // Can now type in jia.outputListOfHobbies() into the console and it will display onto your HTML page!
     }
+    
 }
 
 
