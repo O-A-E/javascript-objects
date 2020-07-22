@@ -25,9 +25,9 @@ const myPersonObject = {  // We use curly braces for objects, not square bracket
     "hobbies": ["Program", "Hike", "Watch Movies"] // This is also an array
 };
 
-console.log("My name is: " + myPersonObject.name);
-console.log("I am " + myPersonObject.age + "years old.");
-console.log("I like to " + myPersonObject.hobbies);
+console.log( "My name is: " + myPersonObject.name) ;
+console.log( "I am " + myPersonObject.age + "years old." );
+console.log( "I like to " + myPersonObject.hobbies );
 myPersonObject.age = myPersonObject.age + 1; // Happy birthday, Henry!
 console.log
 
@@ -49,7 +49,7 @@ console.log(validJSONString); // This can be interpreted by other programming la
 class Person 
     {
     // We can use constructors to set the base properties for our objects (name/age/hobbies in this case.)
-    constructor(name = "", age = 0, hobbies = []) {// Default values set in our parameters (name is a parameter, what is after = is our value)
+    constructor( name = "", age = 0, hobbies = [] ) {// Default values set in our parameters (name is a parameter, what is after = is our value)
         this.name = name;
         this.age = age;
         this.hobbies = hobbies;
@@ -63,7 +63,7 @@ class Person
         // Fill in the text of the element (using template literal.)
         helloElement.textContent = `Hello, my name is ${this.name}!`; // called a string plate literal; this calls on the current name property!
         // Add the new element to the body of our webpage.
-        document.body.appendChild(helloElement);
+        document.body.appendChild( helloElement );
     }
     birthday() // We are defining this method to add 1 to the age property.
     { 
@@ -76,11 +76,11 @@ class Person
         // Check if the hobby is filled in.
         if (hobby.length > 0)
         { // If it is filled in, push it to the array!
-            this.hobbies.push(hobby); // Push will append a value onto an array!
+            this.hobbies.push( hobby ); // Push will append a value onto an array!
         }
         else
         { // If it is NOT filled in, say no in the console :( 
-            console.log("Sorry, empty hobby! Please try again.");
+            console.log( "Sorry, empty hobby! Please try again.") ;
         }
     }
 }
@@ -88,19 +88,23 @@ class Person
 
 // Let's make some new people!
 const sarah = new Person; // Will only show default values
-console.log(sarah);
+console.log( sarah );
 sarah.sayHello(); // This will call upon a method to execute.
 
 // Note, when we pass arguments, the default parameters are overwritten!
-const jia = new Person("Jia Then", 800, ["Sleep", "Cosplay"]); //can ctrl + click on Person to automatically go back to where Person was defined!
-console.log(jia);
+const jia = new Person( "Jia Then", 800, ["Sleep", "Cosplay"] ); //can ctrl + click on Person to automatically go back to where Person was defined!
+console.log( jia );
 jia.height = "7"; // We can/update and add new values (but should we?? Probably not!); height is a property or value
-console.log(jia);
+console.log( jia );
 // Running the hello method.
 jia.sayHello();
 // Running the birthday method.
 jia.birthday(); // Now she is 801!
 console.log ( "Jia is now... " + jia.age + " years old!");
+// Add some hobbies to Jia's list... //!!! Try to also check these in the console to see immediately if it is working!
+jia.addHobby( "Programming" );
+jia.addHobby( "Asking Questions" );
+console.log ( jia.hobbies ); // Check the hobbies property!
 
 // Values kept inside an object are considered "properties" --> similar to variables!
 // Sets of instructions kept inside an object are considered "methods." --> similar to functions!
